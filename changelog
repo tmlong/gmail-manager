@@ -1,0 +1,222 @@
+Gmail Manager
+By Todd Long <longfocus@gmail.com>
+http://www.longfocus.com/firefox/gmanager/
+
+Releases
+--------
+0.6.4.1 released 3/20/2011
+- Fixed redirect URL encoding issue
+
+0.6.4 released 2/22/2011
+- Fixed mixed-case emails being updated properly
+- Fixed priority inbox causing incorrect unread count
+- Fixed labels with quotes not showing up in tooltip
+- Fixed date/time encoding for snippets (alerts and tooltip)
+- Fixed spam/drafts counts not getting parsed correctly
+- Added direct message access when clicking alert link
+- Added support for Firefox 4.0.* yay!
+- Added support for Songbird 1.9.*
+- Removed support for Seamonkey 1.* (i.e. pre-Gecko 1.8.1)
+
+0.6.3 released 1/20/2011
+- Fixed redirect issue for accounts unable to login
+- Fixed snippets to show date/time they were received
+
+0.6.2 released 1/14/2011
+- Fixed issue with accounts not logging in properly
+- Fixed passwords so that they will play nice with spaces
+- Fixed drag-and-drop to work with the statusbar (once again)
+- Added option to automatically switch to account with new mail
+- Removed support for Firefox 1.* (i.e. pre-Gecko 1.8.1)
+
+0.6.1 released 2/05/2010
+- Fixed issue with not accepting third-party cookies
+- Fixed tooltip for displaying account information
+- Fixed left-click to login before opening account
+- Fixed snippets alert to stay open with mouse over
+- Added support for Songbird 1.4.*
+
+0.6 released 1/22/2010
+- Added option for multiple accounts in the statusbar/toolbar
+- Added drag-and-drop support for the statusbar/toolbar placement 
+- Added better account management with an improved "Options" interface 
+- Added support for Firefox 3.6.*, Flock 2.5.*, Songbird 1.2.*
+- Locales added: ar-SA, da-DK, eu-ES, hu-HU, ro-RO, sr-RS, sv-SE, vi-VN
+
+0.5.7.5 released 10/01/2009
+- Fixed issue with accounts not logging in properly 
+- Added support for Flock 2.5.*, Seamonkey 2.0.*
+
+0.5.7.4 released 8/17/2009
+- Fixed Gmail Offline compatibility with non-US countries
+- Added support for Seamonkey 2.0b2
+
+0.5.7.3 released 8/01/2009
+- Fixed duplicate tab content when dragging links
+- Fixed slowness when closing browser windows
+- Fixed preferences importing duplicate accounts
+- Fixed tooltip formatting for account details
+- Fixed opening account in first available blank tab
+- Fixed reset unread count being hidden and showing again
+
+0.5.7.2 released 6/24/2009
+- Fixed Gmail Offline for hosted accounts
+- Added support for Firefox 3.5.*, Flock 2.5, and Seamonkey 2.0a3
+
+0.5.7.1 released 2/14/2009
+- Fixed Gmail login redirect loop
+
+0.5.7 released 2/12/2009
+- Fixed Gmail Offline compatibility
+- Fixed Google Reader logging out issue
+
+0.5.6 released 2/08/2009
+- Fixed Google data parsing security concerns
+
+0.5.5 released 5/24/2008
+- Fixed login issue for hosted accounts
+- Fixed compose mail feature for hosted accounts
+- Fixed password compatibility with Firefox 3
+- Locales added: be-BY, es-CL
+
+0.5.4 released 11/07/2007
+- Fixed account checking for the new Gmail version
+
+0.5.3 released 9/30/2006
+- Fixed issue with not being able to change account passwords
+- Fixed cookie component error with Mozilla 1.7.x builds
+- Fixed issue with encoding of Japanese translation
+- Fixed format of date/time displayed in the tooltip window
+- Locales added: uk-UA
+
+0.5.2 released 9/16/2006
+- Fixed Gmail chat from logging out when account is open in browser
+- Fixed issue with clicking alert window snippet to open account
+- Fixed alert window so it closes when new message snippet is clicked
+- Fixed accounts from logging in again when a new window opens
+- Locales added: fa-IR
+
+0.5.1 released 8/28/2006
+- Added default mail client to the compose prompt window
+- Fixed issue with accounts not logging out properly
+- Fixed passwords so they are now stored within Firefox
+- Fixed snippets so they should work on all platforms
+- Fixed left/middle click to open different tab locations
+- Fixed XML validator to not be strict with ordering
+- Fixed new login method for hosted mail accounts
+- Fixed mailto parser to include embedded tags in link
+- Locales added: he-IL, hr-HR
+
+0.5 released 7/25/2006
+- Fixed unread count from always showing zero
+- Fixed context menu from not hiding when option checked
+- Fixed alert window system with option to close
+- Added support for hosted Gmail accounts
+- Added support for individual account preferences
+- Added option for import/export of preferences
+- Added option to open account in blank tab/background
+- Added ability to customize left/middle click on toolbar
+- Locales added: bg-BG, cs-CZ, th-TH
+
+0.4.3.6 released 4/04/2006
+- Fixed cookie issue showing accounts with same unread count
+- Fixed issue with opening additional compose window within Gmail
+
+0.4.3.5 released 4/03/2006
+- Fixed a little something Gmail changed
+- Fixed gmail skins issue (showing up as unread mail)
+- Added support for the latest build of Flock
+- Locales added: el-GR, es-AR, fr-FR, gl-ES
+
+0.4.3.4 released 2/26/2006
+- Fixed password remember string locale for zh-CN
+
+0.4.3.3 released 2/18/2006
+- Fixed mailto links with Gmail specific encoding
+- Clicking new mail alerts opens in focused window not all windows
+- Logging out of an account resets the password if not remembered
+- Fixed issue with similar usernames conflicting with unread counts
+
+0.4.3.2 released 2/05/2006
+- Fixed issue with opening tabs/window from clicking the icon
+- Fixed mailto links containing blank spaces
+- Fixed default mail client and mailto links
+
+0.4.3.1 released 2/03/2006
+- Fixed inbox, drafts, and spam unread count change in Gmail
+
+0.4.3 released 2/03/2006
+- Added mailto: link detection and right-click compose menu
+- Toolbar icon now uses Firefox's customize toolbar method
+- HTML stripped properly for new mail snippets
+- Unread mail and icon appear in popup menu with themes
+- Option to automatically switch to account with new mail
+- Unread count is hidden when unchecked in preferences
+- Option to hide icon from appearing in the statusbar
+- Locales added: tr-TR, zh-TW
+
+0.4.2 released 1/15/2006
+- Improved account connection and cookie management
+- New messages in the Inbox, that are labeled, only count once
+- Sender is now shown for new mail snippets and in the tooltip
+- Passwords not remembered are now prompted for when logging in
+- Locales added: es-AR, de-DE, nl-NL, sk-SK
+
+0.4.1 released 12/15/2005
+- Fixed referrer host sent during login
+- Resolved unicode issue for pt-BR locale
+- Added support for Netscape Browser
+- Locales added: lv-LV
+
+0.4 released 12/11/2005
+- No longer required to "Sign Out" of Gmail to check accounts
+- Checking your accounts will no longer affect your Google homepage/reader
+- Switching between accounts, while in Gmail, will not sign you out
+- Support for both @gmail.com and @googlemail.com addresses
+- Middle clicking the icon will open Gmail in new unfocused tab always
+- New mail alert notification popup encoding resolved
+- Show snippets only appears if the feature is available for OS
+- Locales added: ko-KR, pl-PL, pt-BR, ru-RU, sl-SI, zh-CN
+
+0.3.1 released 12/1/2005
+- Fixes locales that are displaying Japanese
+- Fixes saving passwords with special characters
+- Fixes caption's color issue in the Preferences
+- When adding accounts the suffix with @ will be removed
+
+0.3 released 11/30/2005
+- Added icon status for accounts in toolbar popup menu
+- Added option to click notifications for account access
+- Removed "rename" option from preferences
+- Improved tooltip layout and error messages
+- Locales added: fi-FI
+
+0.2.2 released 11/10/2005
+- Added support for Mozilla and Flock
+- Toolbar popup menu displays unread count better format
+- Fixed toolbar placement to get all available toolbars
+- Fixed automatic Gmail sign out with last tab
+- Fixed unread count reset when opening new window
+- Improved account management and better validation
+- Locales added: es-ES, fr-FR, it-IT, ja-JP
+
+0.2.1 released 11/04/2005
+- No more greyed out menu
+- Statusbar icon can be moved to any toolbar
+- Hopefully more organized Preferences layout
+- New mail snippets encoding issue should now be resolved
+- Option to use secured/unsecured connection
+- Option to reset unread count when clicking the icon to load Gmail
+- Option to hide the username from being displayed in the toolbar
+- Option for the unread count to include inbox, spam, and/or labels
+- Automatically sign out of Gmail when last Gmail tab is closed.
+- The error "Length Required POST" should be resolved as well
+
+0.2 released 10/21/2005
+- Added statusbar popup menu 'Sign out of Gmail' option.
+- Added alert notifications when new mail is received (for Windows only).
+- Added sound option to play when new mail is received and also to preview.
+- Added new mail snippets for alerts, tooltip, and/or from the popup menu.
+
+0.1 released 10/04/2005
+- Initial public release and bug free (well at least one of those).
