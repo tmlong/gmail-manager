@@ -1,0 +1,129 @@
+// Gmail Manager
+// By Todd Long <longfocus@gmail.com>
+// http://www.longfocus.com/firefox/gmanager/
+
+#include "xpidl\nsISupports.idl"
+
+[scriptable, uuid(354095af-ef75-46ca-80a8-7187afec5c3c)]
+interface gmIServiceURI : nsISupports
+{
+  readonly attribute ACString url;
+  readonly attribute ACString data;
+};
+
+[scriptable, uuid(6329b514-5b84-2367-173c-92c7ed39aef4)]
+interface gmIServiceLabel : nsISupports
+{
+  readonly attribute AUTF8String name;
+  readonly attribute unsigned long unread;
+  readonly attribute unsigned long total;
+};
+
+[scriptable, uuid(8244fbe6-e443-8b94-32a8-e28fe6632c7d)]
+interface gmIServiceSnippet : nsISupports
+{
+  readonly attribute ACString id;
+  readonly attribute AUTF8String from;
+  readonly attribute ACString email;
+  readonly attribute AUTF8String subject;
+  readonly attribute AUTF8String msg;
+  readonly attribute AUTF8String date;
+  readonly attribute AUTF8String time;
+};
+
+[scriptable, uuid(e60eaba7-f367-4d13-974e-79ff61577007)]
+interface gmIService : nsISupports
+{
+  // Mail service details
+  readonly attribute ACString email;
+  readonly attribute unsigned short status;
+  readonly attribute boolean loggedIn;
+  readonly attribute boolean checking;
+  readonly attribute unsigned long inboxUnread;
+  readonly attribute unsigned long savedDrafts;
+  readonly attribute unsigned long spamUnread;
+  readonly attribute unsigned short spaceUsed;
+  readonly attribute unsigned short percentUsed;
+  readonly attribute unsigned short totalSpace;
+  
+  // Initialize the mail service
+  void init(in ACString aEmail);
+  
+  /**
+   * ...
+   * 
+   * @param aPassword
+   *        ...
+   * @param aFolderId
+   *        ...
+   */
+  gmIServiceURI getFolder([optional] in ACString aPassword,
+                          [optional] in ACString aFolderId);
+  
+  /**
+   * ...
+   * 
+   * @param aPassword
+   *        ...
+   * @param aMessageId
+   *        ...
+   */
+  gmIServiceURI getMessage([optional] in ACString aPassword,
+                           in ACString aMessageId);
+  
+  /**
+   * ...
+   * 
+   * @param aPassword
+   *        ...
+   * @param aHref
+   *        ...
+   */
+  gmIServiceURI getCompose([optional] in ACString aPassword,
+                           [optional] in ACString aHref);
+  
+  
+  // Mail service actions
+  void login([optional] in ACString aPassword);
+  void logout();
+  void check();
+  void resetUnread();
+  
+  /**
+   * Returns the labels for this account.
+   * 
+   * @param aCount
+   *        The labels count.
+   * @param aLabels
+   *        The account labels.
+   * 
+   * NOTE: This can be called from JS as:
+   *       var labels = service.getLabels();
+   *       (|labels| is an array).
+   */
+  void getLabels([optional] out unsigned long aCount,
+                 [retval, array, size_is(aCount)] out gmIServiceLabel aLabels);
+  
+  /**
+   * Returns the snippets for this account.
+   * 
+   * @param aCount
+   *        The snippets count.
+   * @param aSnippets
+   *        The account snippets.
+   * 
+   * NOTE: This can be called from JS as:
+   *       var snippets = service.getSnippets();
+   *       (|snippets| is an array).
+   */
+  void getSnippets([optional] out unsigned long aCount,
+                   [retval, array, size_is(aCount)] out gmIServiceSnippet aSnippets);
+  
+  // Mail service states
+  const unsigned short STATE_CONNECTING     = 10;
+  const unsigned short STATE_LOGGED_OUT     = 20;
+  const unsigned short STATE_LOGGED_IN      = 21;
+  const unsigned short STATE_ERROR_PASSWORD = 30;
+  const unsigned short STATE_ERROR_NETWORK  = 31;
+  const unsigned short STATE_ERROR_TIMEOUT  = 32;
+};

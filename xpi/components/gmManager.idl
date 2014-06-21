@@ -1,0 +1,39 @@
+// Gmail Manager
+// By Todd Long <longfocus@gmail.com>
+// http://www.longfocus.com/firefox/gmanager/
+
+#include "xpidl\nsISupports.idl"
+
+interface gmIAccount;
+interface nsIDOMNode;
+interface nsIFile;
+
+[scriptable, uuid(bf43b6d0-f7dd-11da-974d-0800200c9a66)]
+interface gmIManager : nsISupports
+{
+  readonly attribute ACString version;
+  readonly attribute gmIAccount global;
+  readonly attribute gmIAccount defaultGlobal;
+  readonly attribute gmIAccount defaultAccount;
+  
+  void load();
+  void save();
+  
+  // Preference actions
+  boolean importPrefs(in nsIFile aFile);
+  boolean exportPrefs(in nsIFile aFile);
+  
+  // Account getters
+  boolean isAccount(in ACString aEmail);
+  void getAccounts([optional] out unsigned long aCount,
+                   [retval, array, size_is(aCount)] out gmIAccount aAccount);
+  gmIAccount getAccount(in ACString aEmail);
+  
+  // Account actions
+  gmIAccount addAccount(in ACString aType,
+                        in ACString aEmail,
+                        in AUTF8String aAlias,
+                        in ACString aPassword,
+                        in nsIDOMNode aNode);
+  void removeAccount(in ACString aEmail);
+};

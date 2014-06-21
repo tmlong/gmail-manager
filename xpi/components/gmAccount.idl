@@ -1,0 +1,39 @@
+// Gmail Manager
+// By Todd Long <longfocus@gmail.com>
+// http://www.longfocus.com/firefox/gmanager/
+
+#include "gmService.idl"
+
+interface nsIDOMNode;
+
+[scriptable, uuid(d4676ee3-7e3c-455a-b417-37eaea3082ad)]
+interface gmIAccount : gmIService
+{
+  // Account specific
+  readonly attribute nsIDOMNode node;
+  readonly attribute ACString type;
+  readonly attribute ACString alias;
+  readonly attribute ACString password;
+  
+  // Mail specific
+  readonly attribute boolean newMail;
+  readonly attribute unsigned long unread;
+  
+  // Preferences access
+  boolean getBoolPref(in ACString aId);
+  void setBoolPref(in ACString aId,
+                   in boolean aValue);
+  string getCharPref(in ACString aId);
+  void setCharPref(in ACString aId,
+                   in ACString aValue);
+  unsigned long getIntPref(in ACString aId);
+  void setIntPref(in ACString aId,
+                  in unsigned long aValue);
+  
+  // Load the mail service and preferences
+  void load(in nsIDOMNode node);
+  
+  // Stored password
+  void savePassword(in ACString aPassword);
+  void removePassword();
+};

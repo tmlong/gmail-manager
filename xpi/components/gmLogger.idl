@@ -1,0 +1,11 @@
+// Gmail Manager
+// By Todd Long <longfocus@gmail.com>
+// http://www.longfocus.com/firefox/gmanager/
+
+#include "xpidl\nsISupports.idl"
+
+[scriptable, uuid(07d9b512-8e83-418a-a540-0ec804b82195)]
+interface gmILogger : nsISupports
+{
+  void log(in AUTF8String aMsg);
+};

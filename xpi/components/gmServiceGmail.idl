@@ -1,0 +1,14 @@
+// Gmail Manager
+// By Todd Long <longfocus@gmail.com>
+// http://www.longfocus.com/firefox/gmanager/
+
+#include "gmService.idl"
+
+[scriptable, uuid(b07df9d0-f7dd-11da-974d-0800200c9a66)]
+interface gmIServiceGmail : gmIService
+{
+  // Gmail service details
+  readonly attribute boolean isHosted;
+  readonly attribute ACString username;
+  readonly attribute ACString domain;
+};

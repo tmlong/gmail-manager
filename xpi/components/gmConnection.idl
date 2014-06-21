@@ -1,0 +1,93 @@
+// Gmail Manager
+// By Todd Long <longfocus@gmail.com>
+// http://www.longfocus.com/firefox/gmanager/
+
+#include "xpidl\nsISupports.idl"
+
+interface gmIConnection;
+interface nsIChannel;
+interface nsICookie2;
+
+[scriptable, uuid(99c1a5f0-75ef-4ec5-948a-a922cb913443)]
+interface gmIConnectionCallback : nsISupports
+{
+  /**
+   * This callback function is used to capture connection requests.
+   * 
+   * @param aConnection
+   *        The connection listener.
+   */
+  void callback(in gmIConnection aConnection);
+};
+
+[scriptable, uuid(7e8e54b5-a41a-4a08-9fc3-bed4c5e9adb1)]
+interface gmIConnection : nsISupports
+{
+  /**
+   * The HTTP channel used for server requests.
+   */
+  readonly attribute nsIChannel channel;
+  
+  /**
+   * The HTTP channel data from last server request.
+   */
+  readonly attribute AUTF8String data;
+  
+  /**
+   * Send the server request including the URL and post data (if available).
+   * 
+   * @param aUrl
+   *        The URL being requested.
+   * @param aData
+   *        The HTTP channel post data.
+   */
+  void send(in ACString aUrl,
+            in ACString aData);
+  
+  /**
+   * Send the server request including the URL and post data (if available). 
+   * The request is sent asynchronously to the server while providing the 
+   * connection, to the specified callback function, as the response.
+   * 
+   * @param aUrl
+   *        The URL being requested.
+   * @param aData
+   *        The HTTP channel post data.
+   * @param aCallback
+   *        The connection callback function.
+   */
+  void sendAsync(in ACString aUrl,
+                 in ACString aData,
+                 in gmIConnectionCallback aCallback);
+  
+  /**
+   * Return the cookies for this session (i.e. HTTP connection). This can 
+   * include expired cookies which are not removed until requested.
+   * 
+   * @param aCount
+   *        The cookie count.
+   * @param aCookies
+   *        The session cookies.
+   * 
+   * NOTE: This can be called from JS as:
+   *       var cookies = con.getCookies();
+   *       (|cookies| is an array).
+   */
+  void getCookies([optional] out unsigned long aCount,
+                  [retval, array, size_is(aCount)] out nsICookie2 aCookies);
+  
+  /**
+   * Set the cookies to be used with this session (i.e. HTTP connection).
+   * 
+   * @param aCount
+   *        The cookie count.
+   * @param aCookies
+   *        The session cookies.
+   * 
+   * NOTE: This can be called from JS as:
+   *       con.setCookies(cookies.length, cookies);
+   *       (|cookies| is an array).
+   */
+  void setCookies(in unsigned long aCount,
+                  [array, size_is(aCount)] in nsICookie2 aCookies);
+};

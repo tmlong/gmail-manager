@@ -1,0 +1,21 @@
+// Gmail Manager
+// By Todd Long <longfocus@gmail.com>
+// http://www.longfocus.com/firefox/gmanager/
+
+#include "xpidl\nsISupports.idl"
+
+interface nsIDOMDocument;
+interface nsIDOMElement;
+interface nsIFile;
+
+[scriptable, uuid(d0fe9af0-f7bc-11da-974d-0800200c9a66)]
+interface gmIParser : nsISupports
+{
+  readonly attribute nsIDOMDocument emptyDoc;
+  readonly attribute nsIDOMElement globalNode;
+  readonly attribute nsIDOMElement accountNode;
+  
+  nsIDOMDocument open(in nsIFile aFile);
+  boolean save(in nsIFile aFile,
+               in nsIDOMDocument aDoc);
+};
