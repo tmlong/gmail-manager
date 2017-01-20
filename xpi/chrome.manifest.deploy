@@ -28,7 +28,8 @@ contract @longfocus.com/gmanager/parser;1 {d0fe9af0-f7bc-11da-974d-0800200c9a66}
 component {b07df9d0-f7dd-11da-974d-0800200c9a66} components/gmServiceGmail.js
 contract @longfocus.com/gmanager/service/gmail;1 {b07df9d0-f7dd-11da-974d-0800200c9a66}
 
-content gmanager jar:chrome/gmanager.jar!/content/
+content gmanager jar:chrome/gmanager.jar!/content/gmanager/
+
 overlay chrome://browser/content/browser.xul chrome://gmanager/content/overlay.xul
 overlay chrome://navigator/content/navigator.xul chrome://gmanager/content/overlay.xul
 overlay chrome://songbird/content/xul/menuOverlay.xul chrome://gmanager/content/overlay.xul
